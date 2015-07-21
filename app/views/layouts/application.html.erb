@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>App</title>
+  <link rel="shortcut icon" href="images/favicon(3).ico" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="../assets/javascripts/menu.js"></script>
+  <script src="../assets/javascripts/jqueryexperiment.js"></script>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  
+</head>
+
+
+
+<body>
+
+<header class="menu-wrap">
+      <nav class="menu">
+          <ul class="clearfix">
+            <li style="background: #FFF;"><img src="images/logo_1721806_web.jpg" id="logo"></img></li>
+            
+            <li><a href="guides.html">Guide to<span class="arrow"> &#x25BE;</span></a>
+              <ul class="sub-menu">
+                <li><a href="colorado.html">Colorado</a></li>
+                <li><a href="#">New York City</a></li>
+                <li><a href="#">Florida</a></li>
+              </ul>
+            
+            </li>
+            
+            <li><a href="traveltips.html">Travel Tips!</a></li>
+            
+            <li><a href="#">More Info</a></li>
+            
+            <li><a href="#">FAQ</a></li>
+            
+            <li><a href="signup.html">Sign up!</a></li>
+            
+          </ul>
+      </nav>
+      <a id="menu-toggle" href="#">&#9776;</a>
+</header>
+
+<%= yield %>
+
+</body>
+</html>

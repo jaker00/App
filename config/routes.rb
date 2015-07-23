@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
   get '/posts/:id' => 'application#show'
+  get '/feed' => 'application#feed'
+  
+  #CRUD
+  get '/create_post' => 'application#create'
+  get '/posts/:id/edit' => 'application#edit'
+  get '/update_post/:id' => 'application#update'
+  get '/posts/:id/destroy' => 'application#destroy'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

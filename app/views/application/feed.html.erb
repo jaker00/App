@@ -1,0 +1,23 @@
+<h2>Post about your trips here.</h2>
+
+<div class="posts_container">
+
+<!-- <%= @posts.inspect %> -->
+    <% @posts.each do |p| %>
+        <div class="post">
+            <%= p.caption %>
+            <%= p.content %>
+            <%= p.image %>
+        </div>
+    <% end %>
+
+</div>
+
+<footer>
+	<form action="/create_post">
+		<input type="text" name="content" placeholder="content">
+		<input type="text" name="caption" placeholder="caption">
+		<input type="text" name="image" placeholder="image url">
+		<input type="submit">
+	</form>
+</footer>

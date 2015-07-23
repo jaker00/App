@@ -23,7 +23,9 @@ class ApplicationController < ActionController::Base
     p.caption = params['caption']
     p.image = params['image']
     p.save
-    redirect_to "/feed"
+    if p.save
+      render :partial => 'post', :object => p
+    end
   end
   
   def edit

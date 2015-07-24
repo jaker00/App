@@ -1,16 +1,13 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
+  before_action :all_posts, only: [:feed, :create]
+  respond_to :html, :js
+  
   protect_from_forgery with: :exception
   
   def show
     @post = Post.find_by_id(params['id'])
   end
-  
-  def feed
-    @posts = Post.all
-  end
-  
+
   def destroy
     p = Post.find_by_id(params['id'])
     p.destroy
@@ -18,14 +15,7 @@ class ApplicationController < ActionController::Base
   end
   
   def create
-    p = Post.new
-    p.content = params['content']
-    p.caption = params['caption']
-    p.image = params['image']
-    p.save
-    if p.save
-      render :partial => 'post', :object => p
-    end
+    @post = Post.create(post_params)
   end
   
   def edit
@@ -40,5 +30,15 @@ class ApplicationController < ActionController::Base
     p.save
     redirect_to "/posts/#{ p.id }"
   end
+  
+  private
+
+    def all_posts
+      @posts = Post.all
+    end
+
+    def post_params
+      params.require(:post).permit(:caption, :content, :image)
+    end
   
 end

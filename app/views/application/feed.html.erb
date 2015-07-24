@@ -11,17 +11,13 @@
     <% end %>
 
 </div>
-<%= form_remote_tag(:url => {:action => 'create'},
-    :update => "posts_container", :position => :bottom,
-    :html => {:id => 'post_form'})%>
-Name: <%= text_field "post", "name" %>
-<%= submit_tag 'Add' %>
-<%= end_form_tag %>
-<footer>
+<!-- <footer id="post-form" style="display:none;">
 	<form action="/create_post">
 		<input type="text" name="content" placeholder="content">
 		<input type="text" name="caption" placeholder="caption">
 		<input type="text" name="image" placeholder="image url">
 		<input type="submit">
 	</form>
-</footer>
+</footer> -->
+
+<%= link_to 'New Post', new_post_path, remote: true %>

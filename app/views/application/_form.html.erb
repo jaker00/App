@@ -1,0 +1,6 @@
+<%= simple_form_for @post, remote: true do |f|   %>
+  <%= f.input  :caption                      %>
+  <%= f.input  :content                         %>
+  <%= f.input  :image                         %>
+  <%= f.button :submit                           %>
+<% end %>

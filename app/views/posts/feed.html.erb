@@ -6,19 +6,21 @@
         <div class="post">
             <%= p.caption %>
             <%= p.content %>
-            <%= p.image %>
+            <div class="image">
+            <%= image_tag p.image_url(:thumb).to_s %>
+            </div>
         </div>
     <% end %>
 
 </div>
 
-
-
 <footer>
-    <form action="/create_post">
-        <input type="text" name="content" placeholder="content">
-        <input type="text" name="caption" placeholder="caption">
-        <input type="text" name="image" placeholder="image url">
-        <input type="submit">
-    </form>
+<%= form_for @post, :html => {:multipart => true} do |f| %>
+        <%= f.text_field :caption, :placeholder => "Caption" %>
+        <%= f.text_field :content, :placeholder => "Content" %>
+        <span>
+        <%= f.file_field :image %>
+        </span>
+        <%= f.submit %>
+<% end %>
 </footer>

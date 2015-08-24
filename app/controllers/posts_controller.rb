@@ -2,15 +2,19 @@ class PostsController < ApplicationController
 before_action :all_posts, only: [:feed, :create]
 respond_to :html, :js
 
-def show
+  def show
     @post = Post.find_by_id(params['id'])
   end
 
   
   def create
     @post = Post.create(post_params)
+    redirect_to "/feed"
   end
   
+  def feed
+    @post = Post.new
+  end
   
   private
 

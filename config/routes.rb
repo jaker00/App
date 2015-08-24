@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get '/posts/:id' => 'posts#show'
   get '/feed' => 'posts#feed'
+  get '/new' => 'posts#new'
+  resources :posts
   
   #CRUD
   get '/create_post' => 'posts#create'

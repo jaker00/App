@@ -1,5 +1,7 @@
 <h1><%= @post.caption %></h1>
 
+<%= image_tag @post.image_url(:thumb).to_s %>
+
 <p><%= @post.content %></p>
 
 <a href="/posts/<%= @post.id %>/edit">Edit</a>

@@ -4,11 +4,13 @@
 
     <% @posts.each do |p| %>
         <div class="post">
-            <%= p.caption %>
+            <p>
+            <%= image_tag p.image_url.to_s %>
+            </p>
+            <p>
+            <b><%= p.caption %></b>
             <%= p.content %>
-            <div class="image">
-            <%= image_tag p.image_url(:thumb).to_s %>
-            </div>
+            </p>
         </div>
     <% end %>
 

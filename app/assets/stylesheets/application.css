@@ -10,25 +10,16 @@ body {
 /* Footer */
 
 footer {
+	width: 100%;
 	position: fixed;
 	bottom: 0;
-	left: 50%;
-	margin-left: -249px;
-	padding: 20px;
+	padding: 15px;
 	background: grey;
 }
 
 footer > form > input {
-	display: block;
-	width: 458px;
 	height: 20px;
 }
-
-form[action="/create_post"] > input[type="submit"] {
-	background: yellow;
-	color: blue;
-}
-
 
 
 /* End of footer */
@@ -38,8 +29,11 @@ form[action="/create_post"] > input[type="submit"] {
 }
 
 .post {
-	margin-top: 40px;
+	margin-bottom: 40px;
 	background: #FFF;
+	float: right;
+	width: 100%;
+	border: thin silver solid;
 }
 
 #logo {

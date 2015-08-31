@@ -3,13 +3,31 @@ before_action :all_posts, only: [:feed, :create]
 respond_to :html, :js
 
   def show
-    @post = Post.find_by_id(params['id'])
+    @post = Post.find_by(id: params[:id])
   end
 
   
   def create
     @post = Post.create(post_params)
+    @post.user = params['user']
     redirect_to "/feed"
+  end
+  
+  def edit
+    @post = Post.find_by(id: params[:id])
+  end
+  
+  def update
+    @post = Post.find_by(id: params[:id])
+    @post.caption = params[:caption]
+    @post.content = params[:content]
+    @post.image = params[:image]
+    
+    if @post.save
+      redirect_to "/users/#{ @post.id }"
+    else
+      render 'edit'
+    end
   end
   
   def feed

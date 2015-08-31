@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the User resource:
+  # CREATE
+  get '/new_user' => 'users#new'
+  get '/create_user' => 'users#create'
+
+  # READ
+  get '/users' => 'users#index'
+  get '/users/:id' => 'users#show'
+
+  # UPDATE
+  get '/users/:id/edit' => 'users#edit'
+  get '/users/:id/update' => 'users#update'
+
+  # DELETE
+  get '/users/:id/destroy' => 'users#destroy'
+  #------------------------------
+
   get '/posts/:id' => 'posts#show'
   get '/feed' => 'posts#feed'
   get '/new' => 'posts#new'
@@ -10,6 +27,9 @@ Rails.application.routes.draw do
   get '/posts/:id/edit' => 'posts#edit'
   get '/update_post/:id' => 'posts#update'
   get '/posts/:id/destroy' => 'posts#destroy'
+  
+  #CRUD
+  get '/create_user' => 'users#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

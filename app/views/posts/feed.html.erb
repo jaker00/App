@@ -20,6 +20,8 @@
 <%= form_for @post, :html => {:multipart => true} do |f| %>
         <%= f.text_field :caption, :placeholder => "Caption" %>
         <%= f.text_field :content, :placeholder => "Content" %>
+        <%= f.text_field :user, :placeholder => "Enter a user name here" %>
+        
         <span>
         <%= f.file_field :image %>
         </span>

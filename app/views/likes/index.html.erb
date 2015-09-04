@@ -1,0 +1,29 @@
+<h1>Likes</h1>
+
+<p><a href="/new_like">Add a New Like</a></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Post</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @likes.each do |like| %>
+    <tr>
+          <td><%= like.user_id %></td>
+          <td><%= like.post_id %></td>
+          <td><a href="/likes/<%= like.id %>">Show</a>
+        </td>
+      <td><a href="/likes/<%= like.id %>/edit">Edit</a></td>
+      <td><a href="/likes/<%= like.id %>/destroy">Destroy</a></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

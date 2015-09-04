@@ -4,12 +4,13 @@ respond_to :html, :js
 
   def show
     @post = Post.find_by(id: params[:id])
+    @user = User.find_by(id: @post.user_id)
   end
 
   
   def create
     @post = Post.create(post_params)
-    @post.user = params['user']
+    @post.user_id = params['user_id']
     redirect_to "/feed"
   end
   
@@ -22,9 +23,10 @@ respond_to :html, :js
     @post.caption = params[:caption]
     @post.content = params[:content]
     @post.image = params[:image]
+    @post.user_id = params[:user_id]
     
     if @post.save
-      redirect_to "/users/#{ @post.id }"
+      redirect_to "/posts/#{ @post.id }"
     else
       render 'edit'
     end
@@ -41,7 +43,7 @@ respond_to :html, :js
     end
 
     def post_params
-      params.require(:post).permit(:caption, :content, :image)
+      params.require(:post).permit(:caption, :content, :image, :user_id)
     end
     
 end

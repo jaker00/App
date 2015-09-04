@@ -1,0 +1,17 @@
+<h1>Editing Like #<%= @like.id %></h1>
+
+<form action="/likes/<%= @like.id %>/update">
+  <div>
+    <label for="user_id">user_id</label><br />
+    <input id="user_id" name="user_id" value="<%= @like.user_id  %>" type="text" />
+  </div>
+  <div>
+    <label for="post_id">post_id</label><br />
+    <input id="post_id" name="post_id" value="<%= @like.post_id  %>" type="text" />
+  </div>
+  <div>
+    <input type="submit">
+  </div>
+</form>
+
+

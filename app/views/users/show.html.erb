@@ -11,3 +11,21 @@
 
 <a href="/users/<%= @user.id %>/edit">Edit</a> |
 <a href="/users/<%= @user.id %>/destroy">Destroy</a>
+
+<ul>
+    <% @posts.each do |post| %>
+    
+    <div class="post">
+            <p>
+            <%= image_tag post.image_url.to_s %>
+            </p>
+            <p>
+            <b><%= post.caption %></b>
+            <%= post.content %>
+            <%= post.created_at %>
+            </p>
+    </div>
+    
+    <% end %> 
+</ul>
+

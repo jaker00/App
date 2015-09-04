@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Like resource:
+  # CREATE
+  get '/new_like' => 'likes#new'
+  get '/create_like' => 'likes#create'
+
+  # READ
+  get '/likes' => 'likes#index'
+  get '/likes/:id' => 'likes#show'
+
+  # UPDATE
+  get '/likes/:id/edit' => 'likes#edit'
+  get '/likes/:id/update' => 'likes#update'
+
+  # DELETE
+  get '/likes/:id/destroy' => 'likes#destroy'
+  #------------------------------
+
   # Routes for the User resource:
   # CREATE
   get '/new_user' => 'users#new'
@@ -18,7 +35,6 @@ Rails.application.routes.draw do
 
   get '/posts/:id' => 'posts#show'
   get '/feed' => 'posts#feed'
-  get '/new' => 'posts#new'
 
   resources :posts
   
@@ -28,8 +44,6 @@ Rails.application.routes.draw do
   get '/update_post/:id' => 'posts#update'
   get '/posts/:id/destroy' => 'posts#destroy'
   
-  #CRUD
-  get '/create_user' => 'users#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

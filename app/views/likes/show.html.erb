@@ -1,0 +1,13 @@
+<h1>Like #<%= @like.id %></h1>
+
+<div>
+  <strong>User</strong>:<br />
+  <p><%= @like.user_id %></p>
+</div>
+<div>
+  <strong>Post</strong>:<br />
+  <p><%= @like.post_id %></p>
+</div>
+
+<a href="/likes/<%= @like.id %>/edit">Edit</a> |
+<a href="/likes/<%= @like.id %>/destroy">Destroy</a>

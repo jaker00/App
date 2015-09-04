@@ -16,8 +16,8 @@
   <tbody>
   <% @likes.each do |like| %>
     <tr>
-          <td><%= like.user_id %></td>
-          <td><%= like.post_id %></td>
+          <td><%= like.user.name %></td>
+          <td><%= like.post.caption %></td>
           <td><a href="/likes/<%= like.id %>">Show</a>
         </td>
       <td><a href="/likes/<%= like.id %>/edit">Edit</a></td>
